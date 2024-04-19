@@ -28,7 +28,6 @@ public class Rest {
         .queryParam("format", "json")
         .queryParam("lat", latitude)
         .queryParam("lon", longitude);
-        System.out.println(builder.toUriString());
 
         ResponseEntity<String> response = new RestTemplate().getForEntity(builder.toUriString(), String.class);
         return response;
