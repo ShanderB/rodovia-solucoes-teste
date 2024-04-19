@@ -1,1 +1,29 @@
-<p>geoprocessamento works!</p>
+<main>
+    <mat-card>
+        <mat-card-actions>
+            <button (click)="getEnderecoPorCoordenadas()" mat-stroked-button color="primary">Pesquisar</button>
+        </mat-card-actions>
+        <span *ngIf="hasData">
+            <mat-card-header>
+                <mat-card-title>Localização Atual</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p>Latitude usado no request: <b>{{localizacaoEnderecoInformacao.latitudeUsadoRequest}}</b></p>
+                <p>Longitude usado no request: <b>{{localizacaoEnderecoInformacao.longitudeUsadoRequest}}</b></p>
+            </mat-card-content>
+
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>Localização Atual</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <p>Endereço formatado: <b>{{localizacaoEnderecoInformacao.display_name}}</b></p>
+                    <p>Bairro: <b>{{localizacaoEnderecoInformacao.address.suburb}}</b></p>
+                    <p>Cep: <b>{{localizacaoEnderecoInformacao.address.postcode}}</b></p>
+                    <p>Cidade: <b>{{localizacaoEnderecoInformacao.address.city}}</b></p>
+                    <p>País: <b>{{localizacaoEnderecoInformacao.address.country}}</b></p>
+                </mat-card-content>
+            </mat-card>
+        </span>
+    </mat-card>
+</main>
