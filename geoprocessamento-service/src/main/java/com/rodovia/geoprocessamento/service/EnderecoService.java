@@ -28,10 +28,10 @@ public class EnderecoService {
     public ResponseEntity<String> getEndereco(Double latitude, Double longitude) {
         ResponseEntity<String> response;
         try {
-        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(apiEndpoint)
-                .queryParam("format", "json")
-                .queryParam("lat", latitude)
-                .queryParam("lon", longitude);
+            UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(apiEndpoint)
+                    .queryParam("format", "json")
+                    .queryParam("lat", latitude)
+                    .queryParam("lon", longitude);
 
             response = new RestTemplate().getForEntity(builder.toUriString(), String.class);
 
@@ -60,7 +60,6 @@ public class EnderecoService {
             enderecoRepository.save(endereco);
         } catch (JsonProcessingException e) {
             System.out.println("Erro ao inserir no banco: " + e.getMessage());
-            }
+        }
     }
-
 }
