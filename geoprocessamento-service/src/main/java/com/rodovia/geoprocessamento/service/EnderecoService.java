@@ -1,5 +1,7 @@
 package com.rodovia.geoprocessamento.service;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -47,9 +49,13 @@ public class EnderecoService {
         return response;
     }
 
-    private void saveEndereco(String responseBody) throws JsonMappingException, JsonProcessingException {
+    private void saveEndereco(String responseBody, Double latitude, Double longitude)
+            throws JsonMappingException, JsonProcessingException {
         try {
             InformacoesEnderecoDTO endereco = new ObjectMapper().readValue(responseBody, InformacoesEnderecoDTO.class);
+            endereco.setDataHoraOperacao(new Date());
+            endereco.setLatitutParam(latitude);
+            endereco.setLongitudeParam(longitude);
 
             enderecoRepository.save(endereco);
         } catch (JsonProcessingException e) {

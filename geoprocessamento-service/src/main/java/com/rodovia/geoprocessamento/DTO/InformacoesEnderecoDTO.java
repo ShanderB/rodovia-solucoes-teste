@@ -32,14 +32,10 @@ public class InformacoesEnderecoDTO {
     @JsonProperty("display_name")
     private String enderecoFormatado;
 
-/*     @JsonProperty("address")
-    private String rua;
-    private String bairro;
-    private String cidade;
-    private String estado;
-    private String pais;
-    private String cep;
+    @JsonProperty("address")
+    private Endereco endereco;
+
     private Double latitutParam;
     private Double longitudeParam;
-    private Date dataHoraOperacao; */
+    private Date dataHoraOperacao;
 }
