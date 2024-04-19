@@ -23,17 +23,6 @@ public class Rest {
     public ResponseEntity<String> getEndereco(
             @RequestParam(required = true) Double latitude,
             @RequestParam(required = true) Double longitude) {
-
-        ResponseEntity<String> response;
-
-        try {
-            response = enderecoService.getEndereco(latitude, longitude);
-
-        } catch (Exception e) {
-            System.out.println("Erro ao buscar endereço: " + e.getMessage());
-            response = new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-
-        return response;
+        return enderecoService.getEndereco(latitude, longitude);
     }
 }
