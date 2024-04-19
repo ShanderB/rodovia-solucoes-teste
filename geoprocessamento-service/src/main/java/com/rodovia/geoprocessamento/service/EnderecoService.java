@@ -33,7 +33,11 @@ public class EnderecoService {
 
             response = new RestTemplate().getForEntity(builder.toUriString(), String.class);
 
-            saveEndereco(response.getBody());
+            if (!response.getStatusCode().equals(HttpStatus.OK)) {
+                return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+
+            saveEndereco(response.getBody(), latitude, longitude);
 
         } catch (Exception e) {
             System.out.println("Erro ao buscar endereço: " + e.getMessage());
