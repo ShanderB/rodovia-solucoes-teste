@@ -9,8 +9,9 @@ export interface Address {
 }
 
 export interface Endereco {
-    address: Address;
-    display_name: string;
-    latitudeUsadoRequest: number;
-    longitudeUsadoRequest: number;
+    address?: Address;
+    display_name?: string;
+    latitudeUsadoRequest?: number;
+    longitudeUsadoRequest?: number;
+    error?: boolean;
 }

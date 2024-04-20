@@ -17,8 +17,9 @@ import { Subject, takeUntil } from 'rxjs';
 export class GeoprocessamentoComponent {
   ngUnsubscribe: Subject<void> = new Subject<void>();
 
-  constructor(private geoprocessamentoService: GeoprocessamentoService) { }
+  constructor(private readonly geoprocessamentoService: GeoprocessamentoService) { }
   hasData = false;
+  hasError = false;
   isLoading = false;
   localizacaoEnderecoInformacao: Endereco = {} as Endereco;
 
@@ -26,6 +27,12 @@ export class GeoprocessamentoComponent {
     this.geoprocessamentoService.coordenadasAtualizadas
     .pipe(takeUntil(this.ngUnsubscribe))
     .subscribe(responseEndereco => {
+      if(responseEndereco.error) {
+        this.hasError = true;
+        this.isLoading = false;
+        return;
+      }
+      
       this.localizacaoEnderecoInformacao = responseEndereco;
       this.hasData = true;
       this.isLoading = false;

@@ -3,8 +3,11 @@
 <main *ngIf="!isLoading">
     <mat-card>
         <mat-card-actions>
-            <button [disabled]="hasData" (click)="getEnderecoPorCoordenadas()" mat-stroked-button color="primary">Pesquisar</button>
+            <button [disabled]="hasData || hasError" (click)="getEnderecoPorCoordenadas()" mat-stroked-button color="primary">Pesquisar</button>
         </mat-card-actions>
+        <mat-card-content *ngIf="hasError">
+            <p>É necessário ativar a localização.</p>
+        </mat-card-content>
         <span *ngIf="hasData">
             <mat-card-header>
                 <mat-card-title>Localização Atual</mat-card-title>
@@ -18,11 +21,11 @@
                 <mat-card-title>Localização Atual</mat-card-title>
             </mat-card-header>
             <mat-card-content>
-                <p>Endereço formatado: <b>{{localizacaoEnderecoInformacao.display_name}}</b></p>
-                <p>Bairro: <b>{{localizacaoEnderecoInformacao.address.suburb}}</b></p>
-                <p>Cep: <b>{{localizacaoEnderecoInformacao.address.postcode}}</b></p>
-                <p>Cidade: <b>{{localizacaoEnderecoInformacao.address.city}}</b></p>
-                <p>País: <b>{{localizacaoEnderecoInformacao.address.country}}</b></p>
+                <p>Endereço formatado: <b>{{localizacaoEnderecoInformacao?.display_name}}</b></p>
+                <p>Bairro: <b>{{localizacaoEnderecoInformacao?.address?.suburb}}</b></p>
+                <p>Cep: <b>{{localizacaoEnderecoInformacao?.address?.postcode}}</b></p>
+                <p>Cidade: <b>{{localizacaoEnderecoInformacao?.address?.city}}</b></p>
+                <p>País: <b>{{localizacaoEnderecoInformacao?.address?.country}}</b></p>
             </mat-card-content>
         </span>
     </mat-card>

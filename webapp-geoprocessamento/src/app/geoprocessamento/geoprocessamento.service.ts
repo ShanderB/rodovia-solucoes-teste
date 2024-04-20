@@ -20,7 +20,12 @@ export class GeoprocessamentoService {
           this.getEnderecoPorCoordenadas(position.coords.latitude, position.coords.longitude);
         }
       },
-        (error) => console.log(error));
+        (error) => {
+          this.coordenadasAtualizadas.next({
+            error: true
+          });
+          console.log(error)
+        });
     }
   }
 
