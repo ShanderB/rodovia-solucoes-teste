@@ -1,4 +1,6 @@
-<main>
+<mat-spinner style="position: absolute;" *ngIf="isLoading"></mat-spinner>
+
+<main *ngIf="!isLoading">
     <mat-card>
         <mat-card-actions>
             <button (click)="getEnderecoPorCoordenadas()" mat-stroked-button color="primary">Pesquisar</button>

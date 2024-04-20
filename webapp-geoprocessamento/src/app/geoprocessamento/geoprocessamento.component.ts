@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { GeoprocessamentoService } from './geoprocessamento.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { CommonModule } from '@angular/common';
 import { Endereco } from './interfaces/Endereco';
 import { Subject, takeUntil } from 'rxjs';
@@ -9,7 +10,7 @@ import { Subject, takeUntil } from 'rxjs';
 @Component({
   selector: 'app-geoprocessamento',
   standalone: true,
-  imports: [MatButtonModule, MatCardModule, CommonModule],
+  imports: [MatButtonModule, MatCardModule, CommonModule, MatProgressSpinnerModule],
   templateUrl: './geoprocessamento.component.html',
   styleUrl: './geoprocessamento.component.css'
 })
@@ -18,6 +19,7 @@ export class GeoprocessamentoComponent {
 
   constructor(private geoprocessamentoService: GeoprocessamentoService) { }
   hasData = false;
+  isLoading = false;
   localizacaoEnderecoInformacao: Endereco = {} as Endereco;
 
   ngOnInit() {
@@ -26,6 +28,7 @@ export class GeoprocessamentoComponent {
     .subscribe(responseEndereco => {
       this.localizacaoEnderecoInformacao = responseEndereco;
       this.hasData = true;
+      this.isLoading = false;
     });
   }
 
@@ -36,5 +39,6 @@ export class GeoprocessamentoComponent {
 
   getEnderecoPorCoordenadas() {
     this.geoprocessamentoService.getLocalizacaoNavegador();
+    this.isLoading = true;
   }
 }
