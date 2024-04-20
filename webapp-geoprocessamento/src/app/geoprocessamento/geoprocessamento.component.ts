@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { GeoprocessamentoService } from './geoprocessamento.service';
-import {MatButtonModule} from '@angular/material/button'; 
-import {MatCardModule} from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
-import {  Endereco } from './interfaces/Endereco';
+import { Endereco } from './interfaces/Endereco';
 
 @Component({
   selector: 'app-geoprocessamento',
@@ -14,7 +14,7 @@ import {  Endereco } from './interfaces/Endereco';
 })
 export class GeoprocessamentoComponent {
 
-  constructor(private geoprocessamentoService: GeoprocessamentoService) {}
+  constructor(private geoprocessamentoService: GeoprocessamentoService) { }
   hasData = false;
   localizacaoEnderecoInformacao: Endereco = {} as Endereco;
 

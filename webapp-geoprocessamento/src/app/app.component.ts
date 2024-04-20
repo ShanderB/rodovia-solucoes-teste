@@ -6,7 +6,10 @@ import { GeoprocessamentoComponent } from './geoprocessamento/geoprocessamento.c
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, GeoprocessamentoComponent],
+  imports: [
+    RouterOutlet,
+    GeoprocessamentoComponent
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
