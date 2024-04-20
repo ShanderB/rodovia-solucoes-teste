@@ -13,8 +13,8 @@ describe('GeoprocessamentoComponent', () => {
     const spy = jasmine.createSpyObj('GeoprocessamentoService', ['getLocalizacaoNavegador']);
 
     TestBed.configureTestingModule({
-      imports: [ GeoprocessamentoComponent ],
-      providers: [ { provide: GeoprocessamentoService, useValue: spy } ]
+      imports: [GeoprocessamentoComponent],
+      providers: [{ provide: GeoprocessamentoService, useValue: spy }]
     });
 
     fixture = TestBed.createComponent(GeoprocessamentoComponent);
@@ -22,11 +22,11 @@ describe('GeoprocessamentoComponent', () => {
     geoprocessamentoServiceSpy = TestBed.inject(GeoprocessamentoService) as jasmine.SpyObj<GeoprocessamentoService>;
   });
 
-  it('should create', () => {
+  it('deve criar', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should set hasData to true when there is no error', () => {
+  it('deve setar hasData para true quando não tiver erro', () => {
     const responseEndereco = { error: false };
     geoprocessamentoServiceSpy.coordenadasAtualizadas = of(responseEndereco) as unknown as Subject<Endereco>;
 
@@ -36,7 +36,7 @@ describe('GeoprocessamentoComponent', () => {
     expect(component.isLoading).toBeFalse();
   });
 
-  it('should set hasError to true when there is an error', () => {
+  it('deve setar hasError para true quando tiver erro', () => {
     const responseEndereco = { error: true };
     geoprocessamentoServiceSpy.coordenadasAtualizadas = of(responseEndereco) as unknown as Subject<Endereco>;
 
@@ -46,7 +46,7 @@ describe('GeoprocessamentoComponent', () => {
     expect(component.isLoading).toBeFalse();
   });
 
-  it('should call getLocalizacaoNavegador and set isLoading to true when getEnderecoPorCoordenadas is called', () => {
+  it('deve chamar getLocalizacaoNavegador e definir isLoading como true quando getEnderecoPorCoordenadas for chamado', () => {
     component.getEnderecoPorCoordenadas();
 
     expect(geoprocessamentoServiceSpy.getLocalizacaoNavegador).toHaveBeenCalled();

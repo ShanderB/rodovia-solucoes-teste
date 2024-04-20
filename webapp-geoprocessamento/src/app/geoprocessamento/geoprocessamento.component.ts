@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { GeoprocessamentoService } from './geoprocessamento.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CommonModule } from '@angular/common';
 import { Endereco } from './interfaces/Endereco';
 import { Subject, takeUntil } from 'rxjs';
@@ -25,18 +25,18 @@ export class GeoprocessamentoComponent {
 
   ngOnInit() {
     this.geoprocessamentoService.coordenadasAtualizadas
-    .pipe(takeUntil(this.ngUnsubscribe))
-    .subscribe(responseEndereco => {
-      if(responseEndereco.error) {
-        this.hasError = true;
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(responseEndereco => {
+        if (responseEndereco.error) {
+          this.hasError = true;
+          this.isLoading = false;
+          return;
+        }
+
+        this.localizacaoEnderecoInformacao = responseEndereco;
+        this.hasData = true;
         this.isLoading = false;
-        return;
-      }
-      
-      this.localizacaoEnderecoInformacao = responseEndereco;
-      this.hasData = true;
-      this.isLoading = false;
-    });
+      });
   }
 
   ngOnDestroy() {

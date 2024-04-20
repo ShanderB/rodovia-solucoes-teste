@@ -3,7 +3,8 @@
 <main *ngIf="!isLoading">
     <mat-card>
         <mat-card-actions>
-            <button [disabled]="hasData || hasError" (click)="getEnderecoPorCoordenadas()" mat-stroked-button color="primary">Pesquisar</button>
+            <button [disabled]="hasData || hasError" (click)="getEnderecoPorCoordenadas()" mat-stroked-button
+                color="primary">Pesquisar</button>
         </mat-card-actions>
         <mat-card-content *ngIf="hasError">
             <p>É necessário ativar a localização.</p>
