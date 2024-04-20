@@ -42,7 +42,7 @@ describe('GeoprocessamentoService', () => {
     })
 
     describe('getLocalizacaoNavegador', () => {
-        it('should get location from navigator', () => {
+        it('deve pegar a localização do navegador', () => {
             const position = {
                 coords: {
                     latitude: -23.5505,
