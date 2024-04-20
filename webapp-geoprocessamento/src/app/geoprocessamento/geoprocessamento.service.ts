@@ -13,7 +13,7 @@ export class GeoprocessamentoService {
 
   coordenadasAtualizadas = new Subject<Endereco>();
 
-  getLocalizacaoNavegador() {
+  getLocalizacaoNavegador(): void {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         if (position) {
@@ -29,7 +29,7 @@ export class GeoprocessamentoService {
     }
   }
 
-  getEnderecoPorCoordenadas(latitude: number, longitude: number) {
+  getEnderecoPorCoordenadas(latitude: number, longitude: number): void {
     this.http.get<Endereco>(environment.apiURL, { params: { latitude, longitude } }).subscribe(data => {
       this.coordenadasAtualizadas.next({
         ...data,
