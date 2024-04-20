@@ -5,8 +5,18 @@ services:
     container_name: "geoprocessamento-service"
     ports:
       - 5000:5000
+    depends_on:
+      - mongodb
+    networks:
+      - app-network
   mongodb:
     image: mongo:7.0
     container_name: "mongodb"
     ports:
       - 27017:27017/tcp
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
