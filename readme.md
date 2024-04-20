@@ -2,7 +2,7 @@
 
 # Para iniciar o back:
 
-Tenha o Docker instalado e configurado. 
+Tenha o Docker instalado e configurado.<br>
 Após isso, rode o comando: `cd service-geoprocessamento/ && docker-compose up -d`
 
 O back estará rodando na porta `5000`.<br>
@@ -15,9 +15,9 @@ Tenha o node instalado e configurado.<br>
 Após isso, rode o comando: `cd webapp-geoprocessamento/ && npm i && npm start`<br>
 O front estará rodando na porta `4200`.<br>
 
-Para visualizar os testes, primeiro execute o comando `npm test`.<br><br>
+Para visualizar os testes, primeiro execute o comando `npm test`.<br>
 Após finalizar, o report de testes estará localizado em `webapp-geoprocessamento/coverage/index.html`.<br>
-Abra-o no navegador.
+Abra-o no navegador.<br>
 
 # Técnologias usadas:
 
