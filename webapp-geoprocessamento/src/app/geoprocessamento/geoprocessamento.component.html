@@ -3,7 +3,7 @@
 <main *ngIf="!isLoading">
     <mat-card>
         <mat-card-actions>
-            <button (click)="getEnderecoPorCoordenadas()" mat-stroked-button color="primary">Pesquisar</button>
+            <button [disabled]="hasData" (click)="getEnderecoPorCoordenadas()" mat-stroked-button color="primary">Pesquisar</button>
         </mat-card-actions>
         <span *ngIf="hasData">
             <mat-card-header>
