@@ -1,0 +1,1 @@
+cd service-geoprocessamento/ && docker-compose up -d && cd ../webapp-geoprocessamento/ && npm i && npm start && cd ../
