@@ -3,16 +3,18 @@
 Tenha o Docker instalado e configurado. 
 Após isso, rode o comando: `cd service-geoprocessamento/ && docker-compose up -d`
 
-O back estará rodando na porta `5000`. Pode se fazer requests pelo `localhost:5000/getEndereco?latitude={latitude}&longitude={longitude}` baseado em WGS84.
-O Mongo estará rodando na porta `27017`. Para se conectar, utilize `mongodb://localhost:27017/`
+O back estará rodando na porta `5000`. Pode se fazer requests pelo `localhost:5000/getEndereco?latitude={latitude}&longitude={longitude}` baseado em WGS84.<b>
+O Mongo estará rodando na porta `27017`. Para se conectar, utilize `mongodb://localhost:27017/`<b>
 
 # Para iniciar o front:
 
 Tenha o node instalado e configurado.
-Após isso, rode o comando: `cd webapp-geoprocessamento/ && npm i && npm start`
-O front estará rodando na porta `4200`.
+Após isso, rode o comando: `cd webapp-geoprocessamento/ && npm i && npm start`<b>
+O front estará rodando na porta `4200`.<b>
 
-Para visualizar os testes, primeiro execute o comando `npm test`. Após finalizar, o report de testes estará localizado em `webapp-geoprocessamento/coverage/index.html`. Abra-o no navegador.
+Para visualizar os testes, primeiro execute o comando `npm test`.<b>
+Após finalizar, o report de testes estará localizado em `webapp-geoprocessamento/coverage/index.html`.<b>
+Abra-o no navegador.
 
 # Técnologias usadas:
 
