@@ -40,7 +40,7 @@ Após isso, rode o comando: `cd webapp-geoprocessamento/ && npm i && npm start`<
 - Maven 3.9.6
 - Maven
 - Lombok (Utilitários para facilitar escrita de código)
-- Mongodb (A cada request, gardar no banco)
+- Mongodb (A cada request, guardar no banco)
 - Docker
 
 #### Front:
